@@ -1,7 +1,7 @@
 '''
 Author: xiaoying
 Date: 2020-11-19 00:27:47
-LastEditTime: 2020-11-22 19:10:57
+LastEditTime: 2020-11-24 22:41:14
 LastEditors: huangjy
 Description: In User Settings Edit
 FilePath: /myproject/myproject/urls.py
@@ -28,6 +28,7 @@ from boards import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^boards/(?P<pk>\d+)/new/$',views.new_topic,name="new_topic"),
     url(r'^boards/(?P<pk>\d+)/$',views.baord_topic,name="board_topic"),
     url(r'^admin/', admin.site.urls),
 ]

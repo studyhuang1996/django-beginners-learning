@@ -1,7 +1,7 @@
 '''
 Author: huangjy
 Date: 2020-11-19 00:35:48
-LastEditTime: 2020-11-22 10:35:17
+LastEditTime: 2020-11-28 22:36:07
 LastEditors: huangjy
 Description: 模型，创建数据库对象
 FilePath: /myproject/boards/models.py

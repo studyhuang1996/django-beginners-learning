@@ -1,0 +1,36 @@
+<!--
+ * @Author: huangjy
+ * @Date: 2020-11-24 22:39:05
+ * @LastEditors: huangjy
+ * @LastEditTime: 2020-11-28 22:23:55
+ * @Description: file content
+-->
+{% extends 'base.html' %}
+
+{% block title %}Start a New Topic{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'board_topic' board.pk %}">{{ board.name }}</a></li>
+  <li class="breadcrumb-item active">New topic</li>
+{% endblock %}
+<!-- 保护post请求，避免外部站点或者应用程序向我们的应用程序提交数据的安全措施
+应用程序每次接收一个 POST 时，都会先检查 CSRF Token。如果这个 request 没有 token，
+或者这个 token是无效的，它就会抛弃提交的数据
+<input type="hidden" name="csrfmiddlewaretoken" value="jG2o6aWj65YGaqzCpl0TYTg5jn6SctjzRZ9KmluifVx0IVaxlwh97YarZKs54Y32">
+-->
+{% block content %}
+  <form method="post">
+    
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_subject">Subject</label>
+      <input type="text" class="form-control" id="id_subject" name="subject">
+    </div>
+    <div class="form-group">
+      <label for="id_message">Message</label>
+      <textarea class="form-control" id="id_message" name="message" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Post</button>
+  </form>
+{% endblock %}
